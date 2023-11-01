@@ -33,10 +33,10 @@ Comments
 
 ## Usage
 
-* Clone the repo, and in the directory in the bash terminal, run `./yosysui openMSP430_design_details.csv` and then design '*openMSP430*. Yosys synthesis and OpenTimer STA will be run, and at the end you will receive '*PRELAYOUT TIMING RESULTS*' as illustrated in the above images. (Before running, make sure to edit the procs paths in the script and the OpenTimer tool path, as well as your local paths)
-* You can also type in `./yosysui -help`, wherein the command gives you a usage guide to help explore its functionalities.
+* Clone the repo, and in the directory in the bash terminal, run `./gdas_synth openMSP430_design_details.csv` and then design '*openMSP430*. Yosys synthesis and OpenTimer STA will be run, and at the end you will receive '*PRELAYOUT TIMING RESULTS*' as illustrated in the above images. (Before running, make sure to edit the procs paths in the script and the OpenTimer tool path, as well as your local paths)
+* You can also type in `./gdas_synth -help`, wherein the command gives you a usage guide to help explore its functionalities.
 
-***Note: The screenshots in the following sections are purely based on the 'yosysui.tcl' script that I have uploaded and are not a direct output of the code snippet in the corresponding section. The code snippets contain only the crucial portions of the 'yosysui.tcl' script required to execute the tasks mentioned in the respective sections.***
+***Note: The screenshots in the following sections are purely based on the 'gdas_synth.tcl' script that I have uploaded and are not a direct output of the code snippet in the corresponding section. The code snippets contain only the crucial portions of the 'gdas_synth.tcl' script required to execute the tasks mentioned in the respective sections.***
 
 ## Day 1 - Introduction to TCL and VSDSYNTH Toolbox Usage (23/08/2023)
 
@@ -54,11 +54,11 @@ Day 1's task is to create a command (in my case, ***yosysui***) and pass a .csv 
 
 ### Implementation
 
-Creation of the *yosysui* command script and *yosysui.tcl* files.
+Creation of the *gdas_synth* command script and *gdas_synth.tcl* files.
 
-![Screenshot from 2023-08-24 19-28-08](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/53d902f7-9ec4-4a8f-a2cd-683f74a7ca2f)
+![sc10](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/e170330d-410a-422a-9606-99fb712752d8)
 
-*yosysui.tcl*
+*gdas_synth.tcl*
 
 ![sc4](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/cf60b6bb-e75e-4611-90bc-1ac205648c2c)
 
@@ -103,11 +103,11 @@ if [ ! -e $1 ] || [ $1 == "-help" ]; then
 	fi
 else
 	echo "Info: csv file $1 accepted"
-	tclsh yosysui.tcl $1
+	tclsh gdas_synth.tcl $1
 fi
 ```
 
-In my command ***yosysui***, I have implemented a total of *5 general scenarios* from the user's point of view in the bash script.
+In my command ***gdas_synth***, I have implemented a total of *5 general scenarios* from the user's point of view in the bash script.
 
 #### 1. No input file provided
 
