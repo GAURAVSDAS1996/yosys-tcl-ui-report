@@ -21,8 +21,8 @@ Comments
 
 > 5 day TCL training workshop by VSD using Yosys and Opentimer open-source EDA tools and TCL to generate a report from a design, wherein the input is design file paths in .csv format to the TCL program. The final objective by day 5 is to give design details, namely paths of design data, to the "TCL BOX", which is the UI being designed, which runs the design in Yosys and Opentimer open-source EDA tools and returns a report of the design.
 
-![Screenshot (264)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/dcf3a9f9-2281-4d6f-b318-a52ddea1fb7d)
-![Screenshot (265)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/6194ce14-1cf5-41c2-9de3-6938f205f912)
+![sc1](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/5296fc27-8416-4ec0-9f68-e6cd2d4fe088)
+![sc2](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/29525e33-1ed0-4d4e-b498-456a40f5249a)
 
 ## Requirements
 
@@ -60,7 +60,7 @@ Creation of the *yosysui* command script and *yosysui.tcl* files.
 
 *yosysui.tcl*
 
-![Screenshot from 2023-08-24 19-36-52](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/c0e5a04d-2d6b-40ea-bcd1-9bd76be60116)
+![sc4](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/cf60b6bb-e75e-4611-90bc-1ac205648c2c)
 
 The basic structure of bash code used for the implementation of general scenarios is shown below.
 
@@ -111,20 +111,21 @@ In my command ***yosysui***, I have implemented a total of *5 general scenarios*
 
 #### 1. No input file provided
 
-![Screenshot from 2023-08-24 19-39-50](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/cb679d28-e0de-448a-ad2a-5d31031d2f8b)
+![sc5](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/c69be564-40e8-4e5c-956b-76a9a4417443)
 
 #### 2. File provided exists but is not of .csv format
 
-![Screenshot from 2023-08-24 19-41-41](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/45653ab6-96be-49f1-8af2-afcce1ee0392)
+![sc6](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/861c3eb7-b475-4f2f-b987-34c5a4be727b)
 
 #### 3. More than one file or parameters provided
 
-![Screenshot from 2023-08-24 19-53-06](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/8ad5345c-1fa8-4432-b618-b5a0bd5f3934)
+![sc7](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/e44fc301-ee41-4ae3-bc0e-0e1e00471487)
 
 #### 4. Provide a .csv file that does not exist
 
-![Screenshot from 2023-08-24 19-54-26](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/96ee26cd-43ed-4056-a1ac-c42a5207542a)
+![sc8](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/afb87688-c31d-478b-adf0-db3636a7b868)
+
 
 #### 5. Type "-help" to find out usage
 
-![Screenshot from 2023-08-24 19-55-32](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/86488924-9fe5-4702-a41d-3916ac7044de)
+![sc9](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/7a534182-1a26-4868-a264-3be4bf0d7727)
