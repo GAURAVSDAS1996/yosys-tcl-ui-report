@@ -85,7 +85,7 @@ if [ ! -e $1 ] || [ $1 == "-help" ]; then
 		echo "Error: Cannot find csv file $1. Exiting..."
 		exit 1
 	else
-		echo "USAGE:  ./yosysui <csv file>"
+		echo "USAGE:  ./gdas_synth <csv file>"
 		echo
 		echo "        where <csv file> consists of 2 columns, below keyword being in 1st column and is Case Sensitive. Please request Fayiz for sample csv file."
 		echo
