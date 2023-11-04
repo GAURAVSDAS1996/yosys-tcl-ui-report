@@ -293,7 +293,7 @@ set outputs_start [lindex [lindex [m1 search all OUTPUTS] 0] 1]
 -->
 ![sc17](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/cd2cc548-1ac1-41c1-8835-7b6e98785e88)
 
-## Day 3 - Processing Clock and Input Constraints from CSV and dumping SDC (26/08/2023)
+## Day 3 - Processing Clock and Input Constraints from CSV and dumping SDC (04/11/2023)
 
 Day 3's task is to basically process constraints in a csv file for clocks and inputs and dump SDC commands into a .sdc file with actual processed data. It involves several matrix search algorithms and also an algorithm to identify inputs that are buses and bits differently.
 
