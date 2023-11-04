@@ -455,8 +455,8 @@ while { $i < $end_of_inputs } {
 *Screenshots*
 
 ![sc22](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/fcdf8c5d-1c1e-4818-8ca4-fbb9c31b111c)
-![sc23](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/ccdb0499-4c9b-4022-b99c-91058940f9ca)
 ![sc24](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/1682c902-6962-49a5-80e8-e556a4446c49)
+![sc23](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/ccdb0499-4c9b-4022-b99c-91058940f9ca)
 
 *openMSP430.sdc*
 
