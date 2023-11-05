@@ -471,3 +471,159 @@ while { $i < $end_of_inputs } {
 */tmp/2*
 
 ![sc27](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/bc763938-a76a-43e3-8262-5616376d5bf9)
+
+# Day 4 - Complete Scripting and Yosys Synthesis Introduction (05/11/2023)
+
+Day 4's tasks included the output section processing and dumping of the SDC file, sample Yosys synthesis using example memory and explanation, Yosys hierarchy check, and its error handling.
+
+**Review of input file - openMSP430_design_constraints.csv**
+
+![Screenshot from 2023-08-29 15-51-51](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/a0251a70-a667-4c03-99cb-430d0cec1ef8)
+
+### Implementation
+
+I have successfully completed Day 4 tasks, namely processing constraints csv file for outputs and dumping SDC commands to .sdc file with actual processed data; learning sample memory synthesis and its memory write and read processes; dumping the hierarchy check Yosys script; and writing code handling errors in hierarchy check.
+
+#### Processing of the constraints .csv file for OUTPUTS and dumping SDC commands to .sdc
+
+I have successfully processed the csv file for OUTPUTS data as well as differentiated bit and bus outputs and dumped output-based SDC commands to .sdc file. The basic code of the same and screenshots of the terminal with several "puts" printing out the variables and user debug information as well as output .sdc are shown below.
+
+*Code*
+
+```tcl
+# OUTPUTS section
+# Finding column number starting for output clock latency in OUTPUTS section only
+set outputs_erd_start_column [lindex [lindex [m1 search rect $clocks_start_column $outputs_start [expr {$ncconcsv-1}] [expr {$nrconcsv-1}] early_rise_delay] 0 ] 0 ]
+set outputs_efd_start_column [lindex [lindex [m1 search rect $clocks_start_column $outputs_start [expr {$ncconcsv-1}] [expr {$nrconcsv-1}] early_fall_delay] 0 ] 0 ]
+set outputs_lrd_start_column [lindex [lindex [m1 search rect $clocks_start_column $outputs_start [expr {$ncconcsv-1}] [expr {$nrconcsv-1}] late_rise_delay] 0 ] 0 ]
+set outputs_lfd_start_column [lindex [lindex [m1 search rect $clocks_start_column $outputs_start [expr {$ncconcsv-1}] [expr {$nrconcsv-1}] late_fall_delay] 0 ] 0 ]
+
+# Finding column number starting for output related clock in OUTPUTS section only
+set outputs_rc_start_column [lindex [lindex [m1 search rect $clocks_start_column $outputs_start [expr {$ncconcsv-1}] [expr {$nrconcsv-1}] clocks] 0 ] 0 ]
+
+# Finding column number starting for output load in OUTPUTS section only
+set outputs_load_start_column [lindex [lindex [m1 search rect $clocks_start_column $outputs_start [expr {$ncconcsv-1}] [expr {$nrconcsv-1}] load] 0 ] 0 ]
+
+# Setting variables for actual input row start and end
+set i [expr {$outputs_start+1}]
+set end_of_outputs [expr {$nrconcsv-1}]
+
+puts "\nInfo-SDC: Working on output constraints....."
+puts "\nInfo-SDC: Categorizing output ports as bits and bussed"
+
+# while loop to write constraint commands to .sdc file
+while { $i < $end_of_outputs } {
+	# Checking if input is bussed or not
+	set netlist [glob -dir $Netlist_Directory *.v]
+	set tmp_file [open /tmp/1 w]
+	foreach f $netlist {
+		set fd [open $f]
+		while { [gets $fd line] != -1 } {
+			set pattern1 " [m1 get cell 0 $i];"
+			if { [regexp -all -- $pattern1 $line] } {
+				set pattern2 [lindex [split $line ";"] 0]
+				if { [regexp -all {output} [lindex [split $pattern2 "\S+"] 0]] } {
+					set s1 "[lindex [split $pattern2 "\S+"] 0] [lindex [split $pattern2 "\S+"] 1] [lindex [split $pattern2 "\S+"] 2]"
+					puts -nonewline $tmp_file "\n[regsub -all {\s+} $s1 " "]"
+				}
+			}
+		}
+	close $fd
+	}
+	close $tmp_file
+	set tmp_file [open /tmp/1 r]
+	set tmp2_file [open /tmp/2 w]
+	puts -nonewline $tmp2_file "[join [lsort -unique [split [read $tmp_file] \n]] \n]"
+	close $tmp_file
+	close $tmp2_file
+	set tmp2_file [open /tmp/2 r]
+	set count [llength [read $tmp2_file]]
+	close $tmp2_file
+	if {$count > 2} {
+		set op_ports [concat [m1 get cell 0 $i]*]
+	} else {
+		set op_ports [m1 get cell 0 $i]
+	}
+
+	# set_output_delay SDC command to set output latency values
+	puts -nonewline $sdc_file "\nset_output_delay -clock \[get_clocks [m1 get cell $outputs_rc_start_column $i]\] -min -rise -source_latency_included [m1 get cell $outputs_erd_start_column $i] \[get_ports $op_ports\]"
+	puts -nonewline $sdc_file "\nset_output_delay -clock \[get_clocks [m1 get cell $outputs_rc_start_column $i]\] -min -fall -source_latency_included [m1 get cell $outputs_efd_start_column $i] \[get_ports $op_ports\]"
+	puts -nonewline $sdc_file "\nset_output_delay -clock \[get_clocks [m1 get cell $outputs_rc_start_column $i]\] -max -rise -source_latency_included [m1 get cell $outputs_lrd_start_column $i] \[get_ports $op_ports\]"
+	puts -nonewline $sdc_file "\nset_output_delay -clock \[get_clocks [m1 get cell $outputs_rc_start_column $i]\] -max -fall -source_latency_included [m1 get cell $outputs_lfd_start_column $i] \[get_ports $op_ports\]"
+
+	# set_load SDC command to set load values
+	puts -nonewline $sdc_file "\nset_load [m1 get cell $outputs_load_start_column $i] \[get_ports $op_ports\]"
+
+	set i [expr {$i+1}]
+}
+
+close $sdc_file
+puts "\nInfo-SDC: SDC created. Please use constraints in path $Output_Directory/$Design_Name.sdc"
+```
+
+*Screenshots*
+
+![sc28](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/3c7a08e7-20dd-4dac-ab99-2bdc5741fbdd)
+![sc29](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/36b81d6e-ebd4-4abe-b924-e3c364546ee3)
+![sc30](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/a0fa3524-0cb7-43c5-a6c1-b3dc29be92e9)
+![sc31](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/d947f25f-249e-4dd9-bf5c-1281734f4d35)
+![sc32](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/7cd4fefe-867a-49ca-8a0c-510747b967ad)
+
+
+*openMSP430.sdc*
+
+![sc33](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/944e623a-ef7b-415d-910d-93483c0b52de)
+
+/tmp/1 and /tmp/2 files similar to input ports
+
+#### Memory module yosys synthesis and explanation
+
+The verilog code *memory.v* for a single-bit address and single-bit data memory unit is given below.
+
+*Code*
+
+```verilog
+module memory (CLK, ADDR, DIN, DOUT);
+
+parameter wordSize = 1;
+parameter addressSize = 1;
+
+input ADDR, CLK;
+input [wordSize-1:0] DIN;
+output reg [wordSize-1:0] DOUT;
+reg [wordSize:0] mem [0:(1<<addressSize)-1];
+
+always @(posedge CLK) begin
+	mem[ADDR] <= DIN;
+	DOUT <= mem[ADDR];
+	end
+
+endmodule
+```
+
+The basic Yosys script *memory.ys* to run this and obtain a gate-level netlist and 2D representation of the memory module in gate components is provided below.
+
+*Script*
+
+```tcl
+# Reding the library
+read_liberty -lib -ignore_miss_dir -setattr blackbox /home/kunalg/Desktop/work/openmsp430/openmsp430/osu018_stdcells.lib
+# Reading the verilog
+read_verilog memory.v
+synth top memory
+splitnets -ports -format ___
+dfflibmap -liberty /home/kunalg/Desktop/work/openmsp430/openmsp430/osu018_stdcells.lib
+opt
+abc -liberty /home/kunalg/Desktop/work/openmsp430/openmsp430/osu018_stdcells.lib
+flatten
+clean -purge
+opt
+clean
+# Writing the netlist
+write_verilog memory_synth.v
+# Representation of netlist with it's components
+show
+```
+
+The output view of netlist from the code is shown below.
+
