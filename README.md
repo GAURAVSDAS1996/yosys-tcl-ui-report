@@ -1192,7 +1192,7 @@ close $timing_file
 
 */tmp/3*
 
-![Screenshot from 2023-08-29 17-44-25](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/42b14a5f-3de4-4b02-89b4-c6219cb232f5)
+![sp5](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/323298c6-ca44-43bc-af66-734ace679692)
 
 ###### Expanding the bussed input and output ports
 
