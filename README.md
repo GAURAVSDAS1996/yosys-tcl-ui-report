@@ -626,35 +626,35 @@ show
 ```
 
 The output view of netlist from the code is shown below.
-![Screenshot (267)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/82137c89-b8f5-4b98-996b-e7e6fe6516a1)
+![v1](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/c01a456e-5bb4-4a3b-9e8d-fc9f0d615304)
 
 *Memory write process explained in following images using truth table*
 
 Basic illustration of the write process
 
-![Screenshot (268)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/44d4b869-a861-41c6-90a0-4d2e9a0ff38c)
+![v2](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/e737e333-786b-4104-ab18-36b713427a23)
 
 Before first rising edge of the clock
 
-![Screenshot (272)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/7c1cbdc0-ccbe-4010-ae5d-2af6317d7459)
+![v3](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/4432b9be-6222-4d2a-81c8-ad9aa20b3b98)
 
 After first rising edge of the clock - write process done
 
-![Screenshot (273)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/f6d57546-e60e-4cfe-bf20-601d5962d000)
+![v4](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/bca2741e-fdb0-4104-a848-aea4b662de51)
 
 *Memory read process explained in following images using truth table*
 
 Basic illustration of the read process
 
-![Screenshot (269)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/2dff99ae-b568-4b7a-93ac-78cfa112a9ed)
+![v5](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/9f44875b-192f-47ae-9994-ebcfff55d925)
 
 After first rising edge and before second rising edge of the clock
 
-![Screenshot (274)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/4940be06-9546-4652-908d-44cd96050d6a)
+![v6](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/2b96b838-163b-4ccb-a43f-7788f592a1e0)
 
 After second rising edge of the clock - read process done
 
-![Screenshot (275)](https://github.com/fayizferosh/yosys-tcl-ui-report/assets/63997454/ab0a4c9c-fd2b-48ee-b9ff-d068c2bdfbf1)
+![v7](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/779b5136-1c6c-41f6-bfd0-728f66de5155)
 
 #### Hierarchy check script dumping
 
