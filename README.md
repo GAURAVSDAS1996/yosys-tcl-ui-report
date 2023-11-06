@@ -1493,3 +1493,7 @@ puts "\n"
 ![final1](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/9e0fc4fb-81e9-4203-90f0-9ef8bbed9bda)
 ![final2](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/60718d38-66ce-46c5-ad94-0e1e845e73f4)
 ![final3](https://github.com/GAURAVSDAS1996/screenshots/assets/76874646/a5de37ec-cefc-492c-ab1b-930d3d8515e5)
+
+# Acknowledgements
+
+* [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.
