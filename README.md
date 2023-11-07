@@ -10,7 +10,7 @@
 ![Static Badge](https://img.shields.io/badge/OS-linux-orange)
 ![Static Badge](https://img.shields.io/badge/EDA%20Tools-Yosys%2C_OpenTimer-navy)
 ![Static Badge](https://img.shields.io/badge/languages-verilog%2C_bash%2C_TCL-crimson)
-![GitHub last commit](https://img.shields.io/github/last-commit/fayizferosh/yosys-tcl-ui-report)
+![GitHub last commit](https://img.shields.io/badge/last%20commit-November%202023-brightgreen)
 ![GitHub language count](https://img.shields.io/github/languages/count/fayizferosh/yosys-tcl-ui-report)
 ![GitHub top language](https://img.shields.io/github/languages/top/fayizferosh/yosys-tcl-ui-report)
 ![GitHub repo size](https://img.shields.io/github/repo-size/fayizferosh/yosys-tcl-ui-report)
