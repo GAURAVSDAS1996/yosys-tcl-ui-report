@@ -13,6 +13,7 @@
 ![GitHub last commit](https://img.shields.io/badge/last%20commit-November%202023-brightgreen)
 ![GitHub language count](https://img.shields.io/github/languages/count/fayizferosh/yosys-tcl-ui-report)
 ![GitHub top language](https://img.shields.io/github/languages/top/fayizferosh/yosys-tcl-ui-report)
+![GitHub top language](https://img.shields.io/badge/tcl-3.2%25-blue)
 ![GitHub repo size](https://img.shields.io/github/repo-size/fayizferosh/yosys-tcl-ui-report)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/fayizferosh/yosys-tcl-ui-report)
 ![GitHub repo file count (file type)](https://img.shields.io/github/directory-file-count/fayizferosh/yosys-tcl-ui-report)
