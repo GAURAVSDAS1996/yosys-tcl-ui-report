@@ -88,7 +88,7 @@ if [ ! -e $1 ] || [ $1 == "-help" ]; then
 	else
 		echo "USAGE:  ./gdas_synth <csv file>"
 		echo
-		echo "        where <csv file> consists of 2 columns, below keyword being in 1st column and is Case Sensitive. Please request Fayiz for sample csv file."
+		echo "        where <csv file> consists of 2 columns, below keyword being in 1st column and is Case Sensitive. Please request Gaurav for sample csv file."
 		echo
 		echo "        <Design Name> is the name of top level module."
 		echo
